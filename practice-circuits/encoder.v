@@ -16,35 +16,35 @@ module encoder(
         bcd_out = 0;
         if (enable) begin
 
-            if (encoded_in == 16'd2) begin
+            if (encoded_in[1] == 1'b1) begin
                 bcd_out = 4'd1;
-            end if (encoded_in == 16'd4) begin
+            end if (encoded_in[2] == 1'b1) begin
                 bcd_out = 4'd2;
-            end if (encoded_in == 16'd8) begin
+            end if (encoded_in[3] == 1'b1) begin
                 bcd_out = 4'd3;
-            end if (encoded_in == 16'd16) begin
+            end if (encoded_in[4] == 1'b1) begin
                 bcd_out = 4'd4;
-            end if (encoded_in == 16'd32) begin
+            end if (encoded_in[5] == 1'b1) begin
                 bcd_out = 4'd5;
-            end if (encoded_in == 16'd64) begin
+            end if (encoded_in[6] == 1'b1) begin
                 bcd_out = 4'd6;
-            end if (encoded_in == 16'd128) begin
+            end if (encoded_in[7] == 1'b1) begin
                 bcd_out = 4'd7;
-            end if (encoded_in == 16'd256) begin
+            end if (encoded_in[8] == 1'b1) begin
                 bcd_out = 4'd8;
-            end if (encoded_in == 16'd512) begin
+            end if (encoded_in[9] == 1'b1) begin
                 bcd_out = 4'd9;
-            end if (encoded_in == 16'd1024) begin
+            end if (encoded_in[10] == 1'b1) begin
                 bcd_out = 4'd10;
-            end if (encoded_in == 16'd2048) begin
+            end if (encoded_in[11] == 1'b1) begin
                 bcd_out = 4'd11;
-            end if (encoded_in == 16'd4096) begin
+            end if (encoded_in[12] == 1'b1) begin
                 bcd_out = 4'd12;
-            end if (encoded_in == 16'd8192) begin
+            end if (encoded_in[13] == 1'b1) begin
                 bcd_out = 4'd13;
-            end if (encoded_in == 16'd16384) begin
+            end if (encoded_in[14] == 1'b1) begin
                 bcd_out = 4'd14;
-            end if (encoded_in == 16'd32768) begin
+            end if (encoded_in[15] == 1'b1) begin
                 bcd_out = 4'd15;
             end
 
