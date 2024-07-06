@@ -2,12 +2,12 @@
 
 // 16-to-4 Encoder
 module encoder(
-    encoded_in,
+    raw_in,
     bcd_out,
     enable
 );
 
-    input wire[15:0] encoded_in;
+    input wire[15:0] raw_in;
     input wire enable;
 
     output reg[3:0] bcd_out;
@@ -15,7 +15,7 @@ module encoder(
     always @ (enable) begin
         bcd_out = 0;
         if (enable) begin
-            casex (encoded_in)
+            casex (raw_in)
                 default: bcd_out = 4'd0;
                 16'b1???????????????: bcd_out = 4'd15;
                 16'b01??????????????: bcd_out = 4'd14;
