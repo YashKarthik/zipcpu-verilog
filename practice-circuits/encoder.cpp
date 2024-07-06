@@ -10,12 +10,13 @@ void tick(int tickcount, Vencoder *tb, VerilatedVcdC *tfp) {
     printf("here: i = %i\n", tickcount);
     tb->eval();
 
-    tb->encoded_in = pow(2, tickcount);
-    if (tickcount % 2 == 0) {
-        tb->enable = 1;
-    } else {
-        tb->enable = 0;
-    }
+    tb->encoded_in = tickcount;
+    tb->enable = 1;
+    //if (tickcount % 2 == 0) {
+    //    tb->enable = 1;
+    //} else {
+    //    tb->enable = 0;
+    //}
     tb->eval();
 
     if (tfp) {

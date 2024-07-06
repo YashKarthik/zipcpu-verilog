@@ -7,47 +7,32 @@ module encoder(
     enable
 );
 
-    input wire[16:0] encoded_in;
+    input wire[15:0] encoded_in;
     input wire enable;
 
-    output reg[4:0] bcd_out;
+    output reg[3:0] bcd_out;
 
     always @ (enable) begin
         bcd_out = 0;
         if (enable) begin
-
-            if (encoded_in[1] == 1'b1) begin
-                bcd_out = 4'd1;
-            end if (encoded_in[2] == 1'b1) begin
-                bcd_out = 4'd2;
-            end if (encoded_in[3] == 1'b1) begin
-                bcd_out = 4'd3;
-            end if (encoded_in[4] == 1'b1) begin
-                bcd_out = 4'd4;
-            end if (encoded_in[5] == 1'b1) begin
-                bcd_out = 4'd5;
-            end if (encoded_in[6] == 1'b1) begin
-                bcd_out = 4'd6;
-            end if (encoded_in[7] == 1'b1) begin
-                bcd_out = 4'd7;
-            end if (encoded_in[8] == 1'b1) begin
-                bcd_out = 4'd8;
-            end if (encoded_in[9] == 1'b1) begin
-                bcd_out = 4'd9;
-            end if (encoded_in[10] == 1'b1) begin
-                bcd_out = 4'd10;
-            end if (encoded_in[11] == 1'b1) begin
-                bcd_out = 4'd11;
-            end if (encoded_in[12] == 1'b1) begin
-                bcd_out = 4'd12;
-            end if (encoded_in[13] == 1'b1) begin
-                bcd_out = 4'd13;
-            end if (encoded_in[14] == 1'b1) begin
-                bcd_out = 4'd14;
-            end if (encoded_in[15] == 1'b1) begin
-                bcd_out = 4'd15;
-            end
-
+            casex (encoded_in)
+                default: bcd_out = 4'd0;
+                16'b1???????????????: bcd_out = 4'd15;
+                16'b01??????????????: bcd_out = 4'd14;
+                16'b001?????????????: bcd_out = 4'd13;
+                16'b0001????????????: bcd_out = 4'd12;
+                16'b00001???????????: bcd_out = 4'd11;
+                16'b000001??????????: bcd_out = 4'd10;
+                16'b0000001?????????: bcd_out = 4'd9;
+                16'b00000001????????: bcd_out = 4'd8;
+                16'b000000001???????: bcd_out = 4'd7;
+                16'b0000000001??????: bcd_out = 4'd6;
+                16'b00000000001?????: bcd_out = 4'd5;
+                16'b000000000001????: bcd_out = 4'd4;
+                16'b0000000000001???: bcd_out = 4'd3;
+                16'b00000000000001??: bcd_out = 4'd2;
+                16'b000000000000001?: bcd_out = 4'd1;
+            endcase
         end
     end
 endmodule
