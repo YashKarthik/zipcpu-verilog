@@ -21,7 +21,8 @@ int main(int argc, char** argv, char** env) {
 
     while (sim_time < MAX_SIM_TIME) {
         circuit->seq_in = rand() % 2;
-        circuit->shift = rand() % 2;
+        circuit->shift_r = rand() % 2;
+        circuit->shift_l = !circuit->shift_r;
 
         circuit->parallel_load = rand() % 2;
         circuit->parallel_in = rand() % 16;
